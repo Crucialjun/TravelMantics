@@ -48,7 +48,7 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
+                notifyItemRemoved(deals.size() - 1);
             }
 
             @Override
