@@ -9,7 +9,7 @@ public class FirebaseUtil {
     public static FirebaseDatabase mFirebaseDatabase;
     public static DatabaseReference mDatabaseReference;
     private static FirebaseUtil sFirebaseUtil;
-    public static ArrayList<TravelDeals> mDeals;
+    public static ArrayList<TravelDeal> mDeals;
 
 
     private FirebaseUtil(){
@@ -20,8 +20,9 @@ public class FirebaseUtil {
         if(sFirebaseUtil == null){
             sFirebaseUtil = new FirebaseUtil();
             mFirebaseDatabase = FirebaseDatabase.getInstance();
-            mDeals = new ArrayList<TravelDeals>();
         }
+
+        mDeals = new ArrayList<TravelDeal>();
 
         mDatabaseReference = mFirebaseDatabase.getReference().child(ref);
     }

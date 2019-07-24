@@ -1,13 +1,15 @@
 package com.crucial.travelmantics;
 
-public class TravelDeals {
+import java.io.Serializable;
+
+public class TravelDeal implements Serializable {
     private String id;
     private String title;
     private String description;
     private String price;
     private String imageUrl;
 
-    public TravelDeals(String title, String description, String price, String imageUrl) {
+    public TravelDeal(String title, String description, String price, String imageUrl) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -15,7 +17,7 @@ public class TravelDeals {
         this.imageUrl = imageUrl;
     }
 
-    public TravelDeals(){
+    public TravelDeal(){
 
     }
 
