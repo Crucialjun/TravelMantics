@@ -9,7 +9,7 @@ public class TravelDeal implements Serializable {
     private String price;
     private String imageUrl;
 
-    public TravelDeal(String title, String description, String price, String imageUrl) {
+    public TravelDeal(String title, String description, String price, String imageUrl,String id) {
         this.id = id;
         this.title = title;
         this.description = description;

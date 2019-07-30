@@ -14,6 +14,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +27,8 @@ public class FirebaseUtil {
     public static DatabaseReference mDatabaseReference;
     private static FirebaseUtil sFirebaseUtil;
     private static FirebaseAuth mFirebaseAuth;
+    private static FirebaseStorage mStorage;
+    static StorageReference mStorageRef;
     private static FirebaseAuth.AuthStateListener mAuthListener;
     public static ArrayList<TravelDeal> mDeals;
     private static ListActivity caller;
@@ -40,7 +44,7 @@ public class FirebaseUtil {
         if(sFirebaseUtil == null){
             sFirebaseUtil = new FirebaseUtil();
             mFirebaseDatabase = FirebaseDatabase.getInstance();
-            mFirebaseAuth = mFirebaseAuth.getInstance();
+            mFirebaseAuth = FirebaseAuth.getInstance();
             caller = callerActivity;
             mAuthListener = new FirebaseAuth.AuthStateListener() {
                 @Override
@@ -57,6 +61,7 @@ public class FirebaseUtil {
 
                 }
             };
+            connectStorage();
         }
 
         mDeals = new ArrayList<TravelDeal>();
@@ -122,6 +127,11 @@ public class FirebaseUtil {
                         .setAvailableProviders(providers)
                         .build(),
                 RC_SIGN_IN);
+    }
+
+    public static void connectStorage(){
+        mStorage = FirebaseStorage.getInstance();
+        mStorageRef = mStorage.getReference().child("deals_pictures");
     }
 
 }
